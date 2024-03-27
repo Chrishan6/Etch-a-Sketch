@@ -1,0 +1,14 @@
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 500px;
+}
+
+.square {
+    width: 100%; /* width and height both set to 100 percent so squares take up entirety of the grid */
+    height: 100%;
+    border: 1px;
+    border-color: solid-black;
+}
