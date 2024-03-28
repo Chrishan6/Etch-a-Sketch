@@ -4,11 +4,13 @@
     align-items: center;
     width: 400px;
     height: 500px;
+    border: 1px;
+    border-color: solid black;
 }
 
 .square {
-    width: 100%; /* width and height both set to 100 percent so squares take up entirety of the grid */
-    height: 100%;
-    border: 1px;
-    border-color: solid-black;
+   /* Adjust dimensions to create equal-sized squares */
+   width: calc(100% / 16); /* 16 squares per row */
+   height: calc(100% / 16); /* Adjust based on the number of squares */
+   border: 1px solid black; /* Add border style */
 }
