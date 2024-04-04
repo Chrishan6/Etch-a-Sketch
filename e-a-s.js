@@ -1,24 +1,26 @@
-const container = document.getElementById("container")
+const etchContainer = document.querySelector("#etch-container")
+
+const gridContainer = document.querySelector("#grid-container")
 
 
 //creating the grid size
 function createGrid(size) {
-
-    const totalSquares = size * size
-
-    //creating new div classes for css
-    container.style.display = "grid"
-    //this allows me to set the style of the grid, and embed the size variable 
-    //to be repeated 16 times using 1fr, use backticks ('') for embed
-    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-
     //loop to generate the squares in the grid
-    for(let i = 0; i < totalSquares; i++) {
+    for(let i = 0; i < size * size; i++) {
         //setting up square div for css
         const square = document.createElement("div")
         square.classList.add("square")
-        container.appendChild(square)
+        gridContainer.appendChild(square)
     }
 }
 
-createGrid(16)
+document.body.appendChild(etchContainer)
+
+const squares = document.querySelector(".square")
+
+//to determine if mouse is dragging or not
+let isDrawing = false
+
+createGrid(8)
+
+console.log("gridContainer", gridContainer)
