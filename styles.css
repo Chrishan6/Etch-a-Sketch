@@ -6,11 +6,11 @@
 
 #grid-container {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(var(--grid-columns,8), 1fr);
+    grid-template-rows: repeat(var(--grid-rows, 8), 1fr);
     width: 400px;
     height: 400px;
-    border: 1px solid black; 
+    border: 5px solid blue; 
 }
 
 
