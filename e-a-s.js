@@ -20,9 +20,11 @@ function createGrid(size) {
         square.classList.add("square")
         gridContainer.appendChild(square)
     }
-}
 
-createGrid(20)
+
+}
+ createGrid(20)
+
 
 const squares = document.querySelectorAll(".square")
 
@@ -75,7 +77,76 @@ squares.forEach(square => {
    handlePaint(square)
 });
 
+//adding a button to reset coloured squares
+const resetBtn = document.querySelector("#reset-button")
+resetBtn.addEventListener("click", resetButton)
 
+function resetButton() {
+    squares.forEach(square =>{
+        square.style.backgroundColor = "white"
+    })
+}
+// add input for prompt tmr**
+const sizeBtn = document.querySelector("#open-modal-btn")
+sizeBtn.addEventListener("click", sizeButton)
+
+
+//opening the modal from the change grid size button
+function sizeButton() {
+    openModal()
+}
+
+//button for reseting the original size of the grid
+/*function sizeButton() {
+    //input for grid size
+    const gridSize = alert("How big would you like your grid?")
+    //convert prompt string into number
+    const size = parseInt(gridSize)
+
+    if(!NaN(size) && size > 0) {
+        createGrid(size)
+    } else {
+        alert("C'mon buddy enter a real number!")
+    }
+} */
+
+const modalContainer = document.getElementById("modal-container")
+const closeBtn = document.getElementById("close-button")
+const openModalButton = document.getElementById("open-modal-btn")
+const confirmSizeButton = document.getElementById("confirm-size-button")
+const gridSizeInput = document.getElementById("grid-size-input")
+
+//adding functionality to change gridsize button
+openModalButton.addEventListener("click", openModal)
+
+closeBtn.addEventListener("click", closeModal)
+// function to open the modal
+function openModal() {
+    modalContainer.style.display = "block"
+}
+
+// function to close the modal
+function closeModal(){
+    modalContainer.style.display = "none"
+}
+
+//Making sure the modal button closes the modal as intended
+window.addEventListener("click", (event) => {
+    if(event.target === modalContainer) {
+        closeModal()
+    }
+})
+
+// allowing user to enter a number into the Gridsize input - alerting if the number is below 0
+confirmSizeButton.addEventListener("click", () => {
+    const newSize = parseInt(gridSizeInput.value)
+    if (!isNaN(newSize && newSize > 0)){
+        createGrid(newSize)
+        closeModal()
+    } else {
+        alert("Please Enter a Valid Grid Size")
+    }
+})
 
 document.body.appendChild(etchContainer)
 
